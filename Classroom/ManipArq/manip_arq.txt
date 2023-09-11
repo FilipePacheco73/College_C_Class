@@ -1,0 +1,207 @@
+==============================================================================
+
+			Programacao de Computadores
+			  Manipulacao de Arquivos
+			
+==============================================================================
+
+- Entrada e Saída em Arquivos - Definicao
+  
+  Esta definicao esta no arquivo cabecalho stdio.h ou stdlib.h dependendo do 
+  compilador.Podemos declarar um ponteiro de arquivo da seguinte maneira: 
+
+	FILE *arq;
+
+"arq" sera entao um ponteiro para um arquivo. Usando este tipo de ponteiro 
+vamos poder manipular arquivos no C. 
++
+==============================================================================
+
+			Programacao de Computadores
+			  Manipulacao de Arquivos
+			
+==============================================================================
+
+- Abertura de Arquivos
+
+A funcao de abertura de arquivos : fopen
+
+Exemplo: arqsai= fopen("arqsai.txt","w");
+
+- O nome_do_arquivo determina qual arquivo devera ser aberto. 
+
+- Este nome deve ser valido no sistema operacional em uso. 
+
+- O modo de abertura diz à funcao fopen() vai usar o arquivo 
+
+MODO  Significado
+----  ----------------------------
+"r" - Abre um arquivo para leitura 
+"w" - Cria um arquivo para escrita 
++
+==============================================================================
+
+			Programacao de Computadores
+    			  Manipulacao de Arquivos
+			
+==============================================================================
+
+FILE *fp;
+
+fp=fopen ("exemplo.bin","r");
+
+if (!fp)
+        printf ("Erro na abertura do arquivo.");
+
+
+A condicao  !fp  testa se o arquivo foi aberto com sucesso porque no caso de 
+um erro a funcao fopen() retorna um ponteiro nullo (NULL). 
++
+==============================================================================
+
+			Programacao de Computadores
+    			  Manipulacao de Arquivos
+			
+==============================================================================
+
+Funcao exit
+
+Esta funcao aborta a execucao do programa. Pode ser chamada de qualquer ponto 
+no programa e faz com que o programa termine e retorne, para o sistema 
+operacional, o código_de_retorno 
+
+FILE *fp;
+...
+fp=fopen ("exemplo.bin","wb");
+
+if (!fp)
+        {
+        printf ("Erro na abertura do arquivo. Fim de programa.");
+        exit (1);
+        }
+...
+
+return 0;
+
+}
++
+==============================================================================
+
+			Programacao de Computadores
+    			  Manipulacao de Arquivos
+			
+==============================================================================
+
+Funcao fclose
+
+Quando abrimos um arquivo devemos fecha-lo. Para tanto usar a funcao fclose(): 
+
+fclose(arqent);
+
+A funcao retorna zero no caso de sucesso.
+
++
+==============================================================================
+
+			Programacao de Computadores
+    			  Manipulacao de Arquivos
+			
+==============================================================================
+
+Escrever em arquivos - fprintf 
+
+A funcao fprintf() funciona como a funcao printf(). A diferenca eh que a saida 
+de fprintf() eh um arquivo e nao a tela do computador. 
+
+Exemplo:
+fprintf(arqsai,"%08d %s %02.2f\n",mat,str,nota);
+
+A unica diferenca entre fprintf() e o printf() eh a especificacao do arquivo 
+destino atraves do ponteiro de arquivo. 
+
++
+==============================================================================
+
+			Programacao de Computadores
+    			  Manipulacao de Arquivos
+			
+==============================================================================
+
+Ler em arquivos : fscanf
+
+A funcao fscanf() funciona como a funcao scanf(). A diferença eh que fscanf() 
+le de um arquivo e nao do teclado do computador. 
+
+Exemplo:
+fscanf(arqent,"%08d %s %f\n",&mat,&str,&nota);
+
+A unica diferenca entre fscanf() e scanf() eh a especificacao do arquivo 
+destino atraves do ponteiro de arquivo. 
+
++
+==============================================================================
+
+			Programacao de Computadores
+    			  Manipulacao de Arquivos
+			
+==============================================================================
+
+				E/S PELO TECLADO
+				
+Funcoes de Leitura:
+
+- getch(); - Ler 1 caracter do teclado
+  Exemplo: ch = getch();
+
+-  scanf(); Ler uma variavel do teclado
+   Exemplo: scanf("%d",&variavel);
+
+Funcoes de Escrita:
+
+- putchar();
+  Exemplo: putchar(ch);
+
+- printf();
+  Exemplo: printf("texto %d texto",variavel);
++
+==============================================================================
+
+			Programacao de Computadores
+    			  Manipulacao de Arquivos
+			
+==============================================================================
+
+			   FUNCOES DE LEITURA E GRAVACAO
+
+fputc()   - Gravacao de caracter do arquivo
+
+fgetc()   - Leitura de caracter do arquivo
+
+fprintf() - Gravacao de palavra no arquivo
+
+fscanf()  - Leitura de palavra no arquivo
++
+==============================================================================
+
+			Programacao de Computadores
+    			  Manipulacao de Arquivos
+			
+==============================================================================
+
+		FUNCOES PARA TESTE DE FINAL DE ARQUIVO
+
+feof - Final de Arquivo - Leitura
+
+	Exemplo: while (!feof(p))
+
+
+EOF - Caracter final de arquivo - Leitura
+
+	Exemplo : ch != EOF
+
+
+'\r' - Caracter final de digitacao 
+
+	Exemplo (ch = getche()) != '\r')
+		
+			   
